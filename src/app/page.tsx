@@ -1,95 +1,136 @@
-import Image from "next/image";
+"use client"
+import { useState, useEffect } from "react"
+import Header from './components/Header/header';
+import HorizontalTariff from './components/TariffCard/HorizontalTariff';
+import VerticalTariff from './components/TariffCard/VerticalTariff';
+import CheckoutSection from './components/CheckoutSection/CheckoutSection';
+import GuaranteeSection from './components/GuaranteeSection/GuaranteeSection';
 import styles from "./page.module.css";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+interface Tariff {
+  id: string;
+  period: string;
+  price: number;
+  full_price: number;
+  is_best: boolean;
+  text: string;
+}
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+export default function Home() {
+  const [tariffs, setTariffs] = useState<Tariff[]>([]);
+  const [selectedTariff, setSelectedTariff] = useState<string | null>(null);
+  const [isAgreementChecked, setIsAgreementChecked] = useState(false);
+  const [isButtonPulsing, setIsButtonPulsing] = useState(false);
+  const [showDiscount, setShowDiscount] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedHorizontal, setSelectedHorizontal] = useState<string | null>(null);
+  const [selectedVertical, setSelectedVertical] = useState<string | null>(null);
+  const [showHit, setShowHit] = useState(true);
+
+  useEffect(() => {
+    const fetchTariffs = async () => {
+      try {
+        const response = await fetch('https://t-core.fit-hub.pro/Test/GetTariffs');
+        const data = await response.json();
+        setTariffs(data);
+        const bestTariff = data.find((tariff: Tariff) => tariff.is_best);
+        if (bestTariff) setSelectedTariff(bestTariff.id);
+      } catch (error) {
+        console.error('Ошибка загрузки тарифов:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchTariffs();
+  }, []);
+
+  const handleTimeEnd = () => {
+    setShowDiscount(false);
+    setShowHit(false);
+  };
+
+  const handleBuyClick = () => {
+    if (!selectedTariff) {
+      alert("Пожалуйста, выберите тариф");
+      return;
+    }
+    if (!isAgreementChecked) {
+      alert("Пожалуйста, согласитесь с условиями");
+      return;
+    }
+    const selectedTariffData = tariffs.find(tariff => tariff.id === selectedTariff);
+    alert(`Выбран тариф: ${selectedTariffData?.period}`);
+  };
+
+  if (isLoading) {
+    return (
+      <div className={styles.back}>
+        <div className={styles.loading}>Загрузка тарифов...</div>
+      </div>
+    );
+  }
+
+  const bestTariff = tariffs.find(tariff => tariff.is_best);
+  const verticalTariffs = tariffs.filter(tariff => !tariff.is_best);
+
+  return (
+    <div className={styles.back}>
+      <Header onTimeEnd={handleTimeEnd} />
+      <main className={styles.main}>
+        <div className={styles.newDiv}>
+          <h2 className={styles.h2}>
+            Выбери подходящий для себя <span className={styles.yellowText}>тариф</span>
+          </h2>
         </div>
+
+        <div className={styles.content}>
+          <div className={styles.imageContainer}>
+            <img src="/logo.png" alt="Логотип" />
+          </div>
+
+          <div className={styles.blocksContainerOne}>
+            {bestTariff && (
+              <HorizontalTariff
+                tariff={bestTariff}
+                isSelected={selectedHorizontal === bestTariff.id}
+                showDiscount={showDiscount}
+                showHit={showHit}
+                onSelect={() => {
+                  setSelectedHorizontal(bestTariff.id);
+                  setSelectedVertical(null);
+                  setIsButtonPulsing(true);
+                }}
+              />
+            )}
+
+            <div className={styles.threeBlock}>
+              {verticalTariffs.map((tariff) => (
+                <VerticalTariff
+                  key={tariff.id}
+                  tariff={tariff}
+                  isSelected={selectedVertical === tariff.id}
+                  showDiscount={showDiscount}
+                  onSelect={() => {
+                    setSelectedVertical(tariff.id);
+                    setSelectedHorizontal(null);
+                    setIsButtonPulsing(true);
+                  }}
+                />
+              ))}
+            </div>
+
+            <CheckoutSection
+              isAgreementChecked={isAgreementChecked}
+              onAgreementChange={setIsAgreementChecked}
+              isButtonPulsing={isButtonPulsing}
+              onBuyClick={handleBuyClick}
+              isAnyTariffSelected={!!(selectedHorizontal || selectedVertical)}
+            />
+          </div>
+        </div>
+
+        <GuaranteeSection />
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }

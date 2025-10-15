@@ -1,0 +1,275 @@
+.bottomSection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding-bottom: 1px;
+}
+
+.texts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 499px;
+    max-height: 78px;
+}
+
+.textOne {
+    display: flex;
+    background: #2D3233;
+    color: #FFFFFF;
+    font-family: var(--font-montserrat);
+    font-weight: 400;
+    font-size: 16px;
+    max-width: 499;
+    height: 78;
+    border-radius: 20px;
+    padding-top: 18px;
+    padding-right: 20px;
+    padding-bottom: 18px;
+    padding-left: 20px;
+    margin-top: -18px;
+}
+
+.iconContainer {
+    margin-left: 10px;
+    margin-right: 19px;
+    max-width: 3px;
+}
+
+.exclamation {
+    margin-left: 10px;
+    margin-right: 18px;
+}
+
+.text2 {
+    color: #FFFFFF;
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+    margin: 0;
+}
+
+.line {
+    display: flex;
+    line-height: 1.2;
+    font-size: 16px;
+}
+
+.checkboxLabel {
+    color: #CDCDCD;
+    font-family: var(--font-montserrat);
+    font-weight: 400;
+    font-size: 16px;
+    vertical-align: bottom;
+}
+
+.link {
+    text-decoration: underline;
+    color: #CDCDCD;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 13px;
+}
+
+.customCheckbox {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #606566;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.checkbox:checked+.customCheckbox::after {
+    content: "✓";
+    position: absolute;
+    color: #FDB056;
+    font-size: 14px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkboxLabel {
+    color: #CDCDCD;
+    font-family: var(--font-gilroy);
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    cursor: pointer;
+}
+
+.customCheckbox.red {
+    border-color: #FF4444 !important;
+    background-color: rgba(255, 68, 68, 0.1) !important;
+}
+
+.checkbox:checked+.customCheckbox.red {
+    background: #FF4444 !important;
+    border-color: #FF4444 !important;
+}
+
+.button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: #FDB056;
+    color: #232829;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    font-family: var(--font-montserrat);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 352px;
+    height: 66px;
+}
+
+.button:hover {
+    background: #FDB056;
+}
+
+.button.pulse {
+    animation: buttonPulse 0.6s infinite alternate;
+}
+
+.additionalText {
+    color: #9B9B9B;
+    font-family: var(--font-montserrat);
+    font-size: 14px;
+    text-align: center;
+    text-align: left;
+    width: 748px;
+    height: 68px;
+}
+
+.mobileOnly {
+    display: inline;
+}
+
+/* Mobile Styles */
+@media (max-width: 375px) {
+    .textOne {
+        width: 343px;
+        height: 76px;
+        padding: 14px 20px 14px 12px;
+        margin-left: 16px;
+    }
+
+    .line {
+        display: flex;
+        line-height: 1.2;
+        font-size: 12px;
+    }
+
+    .checkboxContainer {
+        margin-left: 16px;
+        width: 339px;
+        height: 30px;
+    }
+
+    .checkboxLabel {
+        color: #CDCDCD;
+        font-family: var(--font-montserrat);
+        font-weight: 400;
+        font-size: 12px;
+        vertical-align: bottom;
+    }
+
+    .customCheckbox {
+        width: 30px;
+        height: 30px;
+    }
+
+    .button {
+        margin-left: 16px;
+        width: 343px;
+        height: 63px;
+    }
+
+    .additionalText {
+        color: #9B9B9B;
+        width: 343px;
+        height: 72px;
+        margin-left: 0;
+        font-family: var(--font-montserrat);
+        font-weight: 400;
+        font-size: 10px;
+        z-index: 1;
+        margin: 0 0 0 16px;
+    }
+}
+
+@media (max-width: 320px) {
+    .textOne {
+        width: 288px;
+        height: 76px;
+        padding: 14px 20px 14px 12px;
+        margin-left: 16px;
+        border-radius: 16px;
+        margin-top: -30px;
+    }
+
+    .line {
+        display: flex;
+        line-height: 1.2;
+        font-size: 12px;
+    }
+
+    .checkboxContainer {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        width: 292px;
+        height: 42px;
+    }
+
+    .button {
+        margin-left: 16px;
+        width: 288px;
+        height: 55px;
+    }
+
+    .additionalText {
+        color: #9B9B9B;
+        width: 288px;
+        height: 84px;
+        margin-left: 0;
+        margin: -10px 0 0 16px;
+    }
+}
+
+.mobileOnly {
+    display: block;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(253, 176, 86, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(253, 176, 86, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(253, 176, 86, 0);
+    }
+}
