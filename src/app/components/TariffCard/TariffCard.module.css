@@ -148,7 +148,7 @@
     justify-content: space-between;
     border-radius: 40px;
     border: 2px solid #484D4E;
-    background: #313637;
+    background: rgb(19, 19, 16);
     opacity: 1;
     border-width: 2px;
     transition: all 0.3s ease;
