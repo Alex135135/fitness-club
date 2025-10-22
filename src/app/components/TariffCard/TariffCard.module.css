@@ -1,5 +1,5 @@
 .horizontalBlock {
-    background: #4B5563;
+    background: #313637;
     color: white;
     border: 2px solid #FDB056;
     border-radius: 34px;
@@ -134,7 +134,7 @@
 
 
 .verticalBlock {
-    background: #4B5563;
+    background: #313637;
     border: #FDB056;
     width: 240px;
     height: 335px;
@@ -148,7 +148,6 @@
     justify-content: space-between;
     border-radius: 40px;
     border: 2px solid #484D4E;
-    background: rgb(19, 19, 16);
     opacity: 1;
     border-width: 2px;
     transition: all 0.3s ease;
