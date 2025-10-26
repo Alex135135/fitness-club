@@ -21,7 +21,7 @@
 }
 
 .horizontalBlock.selected {
-    border: 1px solid green;
+    border: 1px solid #FF4444;
     box-shadow: 0 0 0 1px #FF4444;
 
 }
@@ -78,7 +78,7 @@
 
 .blockProcent {
     display: flex;
-    background: yellow;
+    background: #FF4444;
     max-width: 66px;
     margin-left: 50px;
     height: 39px;
@@ -155,8 +155,8 @@
 }
 
 .verticalBlock.selected {
-    border: green;
-    box-shadow: 0 0 0 1px green;
+    border: #FF4444;
+    box-shadow: 0 0 0 1px #FF4444;
 }
 
 .verticalBlock.discountEnd {
