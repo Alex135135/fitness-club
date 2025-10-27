@@ -16,7 +16,7 @@
 
 .textOne {
     display: flex;
-    background: #2D3233;
+    background: green;
     color: #FFFFFF;
     font-family: var(--font-montserrat);
     font-weight: 400;
