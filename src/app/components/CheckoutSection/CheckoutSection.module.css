@@ -16,7 +16,7 @@
 
 .textOne {
     display: flex;
-    background: green;
+    background: #313637;
     color: #FFFFFF;
     font-family: var(--font-montserrat);
     font-weight: 400;
@@ -125,7 +125,7 @@
 .button {
     margin-top: 8px;
     margin-bottom: 8px;
-    background: green;
+    background: #FDB056;
     color: #232829;
     border: none;
     padding: 15px 30px;
