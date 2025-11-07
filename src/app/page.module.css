@@ -124,12 +124,12 @@
 
     display: flex;
     justify-content: center;
-    width: 124.1px;
+    width: 224.1px;
     height: 250px;
   }
 
   .imageContainer img {
-    width: 100%;
+    width: 1000%;
     max-width: 300px;
     height: auto;
   }
@@ -180,7 +180,6 @@
   font-size: 18px;
 }
 
-/* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);

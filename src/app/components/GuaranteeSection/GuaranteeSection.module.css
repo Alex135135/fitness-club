@@ -26,7 +26,7 @@
     padding-top: 16px;
     padding-bottom: 18px;
     padding-left: 30px;
-    background: greenyellow;
+
 }
 
 .p2 {
@@ -38,9 +38,6 @@
     height: 93px;
 }
 
-.p1Text {
-    background: black
-}
 
 
 @media (max-width: 375px) {
