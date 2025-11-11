@@ -77,6 +77,7 @@
     align-items: flex-start;
     gap: 12px;
     margin-top: 13px;
+
 }
 
 .customCheckbox {
@@ -90,6 +91,7 @@
     margin-top: 2px;
     transition: all 0.3s ease;
     position: relative;
+    border: 2px solid red;
 }
 
 .checkbox:checked+.customCheckbox::after {
@@ -161,7 +163,7 @@
     display: inline;
 }
 
-/* Mobile Styles */
+
 @media (max-width: 375px) {
     .textOne {
         width: 343px;
