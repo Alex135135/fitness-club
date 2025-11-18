@@ -155,8 +155,8 @@
 }
 
 .verticalBlock.selected {
-    border: #FF4444;
-    box-shadow: 0 0 0 1px #FF4444;
+    border: green;
+    box-shadow: 0 0 0 1px green;
 }
 
 .verticalBlock.discountEnd {
