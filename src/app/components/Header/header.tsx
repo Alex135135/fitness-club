@@ -8,7 +8,7 @@ interface HeaderProps {
 export default function Header({ onTimeEnd }: HeaderProps) {
     return (
         <header className={styles.header}>
-            <h1 className={styles.h1}>Успейте открыть пробное время для спорта</h1>
+            <h1 className={styles.h1}>Успейте открыть пробное время на следующую неделю</h1>
             <Timer onTimeEnd={onTimeEnd} />
         </header>
     )
