@@ -50,7 +50,7 @@ export default function CheckoutSection({
                     </div>
                     <div className={styles.span}>
                         <span className={styles.line}>
-                            Следуя плану на 3 месяца и более, люди получают в 2 раза лучший результат, чем за 1 месяц
+                            Следуя программе на 3 месяца и более, тренировки станут в 2 раза эффективней, чем за 1 месяц
                         </span>
                     </div>
                 </div>
