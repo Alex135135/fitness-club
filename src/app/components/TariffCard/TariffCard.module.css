@@ -1,5 +1,5 @@
 .horizontalBlock {
-    background: blue;
+    background: #484D4E;
     color: white;
     border: 2px solid #FDB056;
     border-radius: 34px;
@@ -134,7 +134,7 @@
 
 
 .verticalBlock {
-    background: blue;
+    background: #484D4E;
     border: #FDB056;
     width: 240px;
     height: 335px;
