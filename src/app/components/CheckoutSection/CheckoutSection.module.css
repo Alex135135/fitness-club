@@ -121,8 +121,8 @@
 }
 
 .checkbox:checked+.customCheckbox.red {
-    background: #FF4444 !important;
-    border-color: #FF4444 !important;
+    background: green !important;
+    border-color: green !important;
 }
 
 .button {
