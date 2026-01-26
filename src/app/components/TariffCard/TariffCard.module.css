@@ -78,7 +78,7 @@
 
 .blockProcent {
     display: flex;
-    background: orange;
+    background: red;
     max-width: 66px;
     margin-left: 50px;
     height: 39px;
@@ -170,7 +170,7 @@
 
 .blockProcentTwo {
     display: flex;
-    background: orange;
+    background: red;
     z-index: 1;
     width: 66px;
     margin-left: 50px;
