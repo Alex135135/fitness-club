@@ -21,7 +21,7 @@
     font-family: var(--font-montserrat);
     font-weight: 400;
     font-size: 16px;
-    max-width: 499;
+    max-width: 599;
     height: 78;
     border-radius: 20px;
     padding-top: 18px;
@@ -128,7 +128,7 @@
 .button {
     margin-top: 8px;
     margin-bottom: 8px;
-    background: #434747;
+    background: #fae848;
     color: white;
     border: none;
     padding: 15px 30px;
